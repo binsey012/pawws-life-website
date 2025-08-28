@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pawws Life - Creative Kids Universe</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=50&q=80" alt="Pawws Life" class="nav-logo">
+      <span>Pawws Life</span>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#comics" class="nav-link">Comics</a>
+      <a href="#shop" class="nav-link">Shop</a>
+      <a href="#league" class="nav-link">League</a>
+      <a href="#learn" class="nav-link">Learn</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=400&q=80" alt="Pawws Life Logo" class="logo animate-bounce">
+      <h1 class="hero-title">Welcome to Pawws Life!</h1>
+      <p class="hero-subtitle">Creative fun, comics, and cool stuff for kids!</p>
+      <button class="jump-btn pulse-btn" id="jumpBtn">Meet Pawws!</button>
+      <div class="character floating" id="character"></div>
+      <div class="interactive-elements">
+        <div class="floating-toy toy-1" id="toy1">🎨</div>
+        <div class="floating-toy toy-2" id="toy2">📚</div>
+        <div class="floating-toy toy-3" id="toy3">🎮</div>
+        <div class="floating-toy toy-4" id="toy4">🌟</div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </header>
+
+  <!-- Comic Portal Section -->
+  <section class="comic-section" id="comics">
+    <div class="section-header">
+      <h2>📚 Comic Adventures</h2>
+      <p>Scroll through exciting stories and adventures!</p>
+    </div>
+    <div class="comic-portal">
+      <div class="comic-episode active" data-episode="1">
+        <div class="episode-header">
+          <h3>Episode 1: The Great Adventure</h3>
+          <span class="episode-badge">NEW</span>
+        </div>
+        <div class="comic-panels">
+          <div class="panel" data-panel="1">
+            <img src="https://images.unsplash.com/photo-1509869175650-a1d97972541a?auto=format&fit=crop&w=400&q=80" alt="Comic Panel 1">
+            <div class="panel-text">Pawws discovers a magical learning world...</div>
+          </div>
+          <div class="panel" data-panel="2">
+            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=400&q=80" alt="Comic Panel 2">
+            <div class="panel-text">With books and knowledge everywhere!</div>
+          </div>
+          <div class="panel" data-panel="3">
+            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=400&q=80" alt="Comic Panel 3">
+            <div class="panel-text">Let's learn and play together!</div>
+          </div>
+        </div>
+      </div>
+      <div class="comic-controls">
+        <button class="prev-btn" id="prevBtn">← Previous</button>
+        <span class="panel-counter">1 / 3</span>
+        <button class="next-btn" id="nextBtn">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Product Section -->
+  <section class="product-section" id="shop">
+    <div class="section-header">
+      <h2>🛍️ Shop Pawws Life</h2>
+      <p>Discover amazing products for creative kids!</p>
+    </div>
+    <div class="product-categories">
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="apparel">Apparel</button>
+      <button class="category-btn" data-category="cards">Cards</button>
+      <button class="category-btn" data-category="digital">Digital</button>
+    </div>
+    <div class="products" id="products"></div>
+    <div class="cart-summary" id="cartSummary">
+      <span class="cart-count">0</span> items in cart
+      <button class="view-cart-btn">View Cart</button>
+    </div>
+  </section>
+
+  <!-- Enhanced League Section -->
+  <section class="league-section" id="league">
+    <div class="section-header">
+      <h2>⚡ Pawws League Championship</h2>
+      <p>Join your favorite team and compete!</p>
+    </div>
+    <div class="league-stats">
+      <div class="stat-card">
+        <h3>1,234</h3>
+        <p>Active Players</p>
+      </div>
+      <div class="stat-card">
+        <h3>8</h3>
+        <p>Teams</p>
+      </div>
+      <div class="stat-card">
+        <h3>456</h3>
+        <p>Matches Played</p>
+      </div>
+    </div>
+    <div class="teams-grid">
+      <div class="team-card interactive" data-team="paws">
+        <div class="team-badge">
+          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=200&q=80" alt="Team Paws">
+        </div>
+        <h3>Team Readers</h3>
+        <p>Book lovers and storytellers!</p>
+        <div class="team-stats">
+          <span>Wins: 15</span>
+          <span>Rank: #1</span>
+        </div>
+        <button class="join-team-btn">Join Team</button>
+      </div>
+      <div class="team-card interactive" data-team="whiskers">
+        <div class="team-badge">
+          <img src="https://images.unsplash.com/photo-1509869175650-a1d97972541a?auto=format&fit=crop&w=200&q=80" alt="Team Artists">
+        </div>
+        <h3>Team Artists</h3>
+        <p>Creative and colorful!</p>
+        <div class="team-stats">
+          <span>Wins: 12</span>
+          <span>Rank: #2</span>
+        </div>
+        <button class="join-team-btn">Join Team</button>
+      </div>
+      <div class="team-card interactive" data-team="thunder">
+        <div class="team-badge">
+          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=200&q=80" alt="Team Explorers">
+        </div>
+        <h3>Team Explorers</h3>
+        <p>Adventure seekers!</p>
+        <div class="team-stats">
+          <span>Wins: 10</span>
+          <span>Rank: #3</span>
+        </div>
+        <button class="join-team-btn">Join Team</button>
+      </div>
+      <div class="team-card interactive" data-team="stars">
+        <div class="team-badge">
+          <img src="https://images.unsplash.com/photo-1491841651911-c44c30c34548?auto=format&fit=crop&w=200&q=80" alt="Team Builders">
+        </div>
+        <h3>Team Builders</h3>
+        <p>Creating amazing things!</p>
+        <div class="team-stats">
+          <span>Wins: 8</span>
+          <span>Rank: #4</span>
+        </div>
+        <button class="join-team-btn">Join Team</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Education & Engagement Section -->
+  <section class="edu-section" id="learn">
+    <div class="section-header">
+      <h2>🎮 Learn & Play Zone</h2>
+      <p>Educational games, downloads, and parent resources!</p>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card game-card">
+        <div class="card-icon">🎯</div>
+        <h3>Mini Games</h3>
+        <p>Fun educational games for kids</p>
+        <button class="play-btn" data-game="memory">Play Memory Game</button>
+      </div>
+      <div class="edu-card download-card">
+        <div class="card-icon">📄</div>
+        <h3>Coloring Pages</h3>
+        <p>Free printable coloring sheets</p>
+        <button class="download-btn" data-download="coloring">Download Free</button>
+      </div>
+      <div class="edu-card parent-card">
+        <div class="card-icon">👨‍👩‍👧‍👦</div>
+        <h3>Parent Resources</h3>
+        <p>Guides and tips for parents</p>
+        <button class="resource-btn" data-resource="guides">View Resources</button>
+      </div>
+      <div class="edu-card activity-card">
+        <div class="card-icon">🏆</div>
+        <h3>Daily Challenge</h3>
+        <p>Complete today's fun challenge</p>
+        <button class="challenge-btn" data-challenge="daily">Start Challenge</button>
+      </div>
+    </div>
+    <div class="progress-tracker">
+      <h3>Your Progress</h3>
+      <div class="progress-bar">
+      <div class="progress-fill" style="width: 65%"></div>
+    </div>
+    <p>65% complete this week! Keep going!</p>
+  </div>
+</section>
+
+<!-- Mini Game Modal -->
+<div class="game-modal" id="gameModal">
+  <div class="game-content">
+    <div class="game-header">
+      <h3>🎮 Memory Match Game</h3>
+      <button class="close-game" id="closeGame">×</button>
+    </div>
+    <div class="game-stats">
+      <span>Moves: <span id="moveCount">0</span></span>
+      <span>Matches: <span id="matchCount">0</span>/6</span>
+      <span>Time: <span id="timeCount">0</span>s</span>
+    </div>
+    <div class="game-board" id="gameBoard"></div>
+    <div class="game-result" id="gameResult"></div>
+  </div>
+</div>  <!-- CMS Integration & Features -->
+  <section class="features-section">
+    <div class="section-header">
+      <h2>🚀 Coming Soon</h2>
+      <p>Exciting features on the way!</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">👤</div>
+        <h3>User Profiles</h3>
+        <p>Create your own Pawws avatar</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎖️</div>
+        <h3>Achievement System</h3>
+        <p>Earn badges and rewards</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Mobile App</h3>
+        <p>Take Pawws Life on the go</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Pawws Life</h3>
+        <p>Creating magical experiences for kids everywhere!</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">🐦</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#comics">Comics</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#league">League</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>For Parents</h4>
+        <ul>
+          <li><a href="#">Safety Guidelines</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact Support</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Pawws Life. All rights reserved.</p>
+      <p class="cms-note">🔧 Powered by Custom CMS (WordPress/Webflow integration ready)</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
