@@ -3,23 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pawws Life - Creative Kids Universe</title>
+  <title>PawwSlyfe - Creative Kids Universe</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Favicon: Paw print icon by Freepik on Flaticon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn-icons-png.flaticon.com/512/9152/9152624.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.flaticon.com/512/9152/9152624.png">
+  <!-- Local fallback -->
+  <link rel="alternate icon" type="image/png" href="assets/images/global/logo.webp">
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
-    <div class="nav-brand">
-      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=50&q=80" alt="Pawws Life" class="nav-logo">
-      <span>Pawws Life</span>
-    </div>
+    <a href="#home" class="nav-brand" id="homeBrand" aria-label="Go to home">
+      <img src="assets/images/global/logo.webp" alt="PawwSlyfe" class="nav-logo">
+      <span class="brand-text">PawwSlyfe</span>
+    </a>
     <div class="nav-menu" id="navMenu">
       <a href="#home" class="nav-link">Home</a>
+  <a href="#who" class="nav-link">Who We Are</a>
       <a href="#comics" class="nav-link">Comics</a>
       <a href="#shop" class="nav-link">Shop</a>
       <a href="#league" class="nav-link">League</a>
       <a href="#learn" class="nav-link">Learn</a>
+    </div>
+    <!-- Right-side actions for ecommerce prep -->
+    <div class="nav-actions">
+      <button class="icon-btn" id="navAccount" aria-label="Account">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-2.76-3.58-5-8-5Z"/></svg>
+      </button>
+      <button class="icon-btn" id="navFavorites" aria-label="Favorites">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-6.7-4.35-9.33-7A5.9 5.9 0 0 1 3.8 3.8a5.2 5.2 0 0 1 7.4.46 5.2 5.2 0 0 1 7.4-.46 5.9 5.9 0 0 1 1.13 10.2C18.7 16.65 12 21 12 21Z"/></svg>
+        <span class="badge" id="favBadge">0</span>
+      </button>
+      <button class="icon-btn" id="navCart" aria-label="Cart">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 20a2 2 0 1 0 2 2 2 2 0 0 0-2-2Zm8 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2ZM6.2 6l.54 3H19a1 1 0 0 1 .98 1.2l-1 5a2 2 0 0 1-1.96 1.6H9a2 2 0 0 1-1.96-1.6L5.1 5H3a1 1 0 0 1 0-2h3a1 1 0 0 1 .98.8L7.2 6Z"/></svg>
+        <span class="badge" id="cartBadge">0</span>
+      </button>
     </div>
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -28,30 +48,56 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="hero" id="home">
-    <div class="hero-content">
-      <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
+  <!-- Hero Section (Redesigned) -->
+  <header class="hero hero-court" id="home">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+  <div class="hero-eyebrow reveal" data-anim="fade-up"><span class="eyebrow-solid">LET'S</span></div>
+  <h1 class="hero-heading reveal" data-anim="fade-up" data-delay="100"><span class="bubble">PAWWLAY</span></h1>
+        <p class="hero-tagline reveal" data-anim="fade-up" data-delay="200">
+          Join the ultimate pet-powered basketball universe. Fun, playful, and full of slam-dunking furry superstars.
+        </p>
+        <div class="hero-cta reveal" data-anim="fade-up" data-delay="300">
+          <button class="jump-btn pulse-btn" id="jumpBtn">Explore</button>
+        </div>
+        <div class="floating-toys">
+          <button class="floating-toy toy-1" id="toy1" aria-label="Art">🎨</button>
+          <button class="floating-toy toy-2" id="toy2" aria-label="Books">📚</button>
+          <button class="floating-toy toy-3" id="toy3" aria-label="Games">🎮</button>
+          <button class="floating-toy toy-4" id="toy4" aria-label="Star">🌟</button>
+        </div>
       </div>
-      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=400&q=80" alt="Pawws Life Logo" class="logo animate-bounce">
-      <h1 class="hero-title">Welcome to Pawws Life!</h1>
-      <p class="hero-subtitle">Creative fun, comics, and cool stuff for kids!</p>
-      <button class="jump-btn pulse-btn" id="jumpBtn">Meet Pawws!</button>
-      <div class="character floating" id="character"></div>
-      <div class="interactive-elements">
-        <div class="floating-toy toy-1" id="toy1">🎨</div>
-        <div class="floating-toy toy-2" id="toy2">📚</div>
-        <div class="floating-toy toy-3" id="toy3">🎮</div>
-        <div class="floating-toy toy-4" id="toy4">🌟</div>
+      <div class="hero-right">
+  <img class="mascot reveal" data-anim="float-in" src="assets/images/hero/Pawws mascot.webp" alt="Pawws mascot">
       </div>
     </div>
     <div class="scroll-indicator">
       <div class="scroll-arrow"></div>
     </div>
   </header>
+
+  <!-- WHO WE ARE -->
+  <section class="who-section" id="who">
+    <div class="who-grid">
+      <div class="who-art reveal" data-anim="slide-left">
+        <img src="assets/images/who/pawws-pup-park.png" alt="Pawws pup in the park">
+      </div>
+      <div class="who-copy">
+        <h2 class="who-title reveal" data-anim="fade-up">WHO WE ARE AT<br><span>PAWWSLYFE</span></h2>
+        <p class="who-text reveal" data-anim="fade-up" data-delay="100">
+          At PawwsLyfe, we’re reimagining the world of pet fandom through a basketball lens—blending the energy of the game with the personality of our furry MVPs. From playful storytelling to custom gear and courtside adventures, we create a vibrant universe where pets and sports fans unite.
+        </p>
+        <p class="who-text reveal" data-anim="fade-up" data-delay="200">
+          Whether you’re a baller or a barker, you’re part of the team. This is more than a brand—it’s a lifestyle. Welcome to the pet‑powered hoops revolution.
+        </p>
+        <a href="#learn" class="who-cta reveal" data-anim="fade-up" data-delay="300">More About Us →</a>
+      </div>
+      <div class="who-art reveal" data-anim="slide-right">
+        <img src="assets/images/who/pawws-pup-basketball.png" alt="Pawws pup with basketball">
+      </div>
+    </div>
+  </section>
 
   <!-- Comic Portal Section -->
   <section class="comic-section" id="comics">
@@ -67,15 +113,15 @@
         </div>
         <div class="comic-panels">
           <div class="panel" data-panel="1">
-            <img src="https://images.unsplash.com/photo-1509869175650-a1d97972541a?auto=format&fit=crop&w=400&q=80" alt="Comic Panel 1">
+            <img src="assets/images/comics/comic-panel1.png" alt="Comic Panel 1">
             <div class="panel-text">Pawws discovers a magical learning world...</div>
           </div>
           <div class="panel" data-panel="2">
-            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=400&q=80" alt="Comic Panel 2">
+            <img src="assets/images/comics/comic-panel2.png" alt="Comic Panel 2">
             <div class="panel-text">With books and knowledge everywhere!</div>
           </div>
           <div class="panel" data-panel="3">
-            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=400&q=80" alt="Comic Panel 3">
+            <img src="assets/images/comics/comic-panel3.png" alt="Comic Panel 3">
             <div class="panel-text">Let's learn and play together!</div>
           </div>
         </div>
@@ -130,7 +176,7 @@
     <div class="teams-grid">
       <div class="team-card interactive" data-team="paws">
         <div class="team-badge">
-          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=200&q=80" alt="Team Paws">
+          <img src="assets/images/league/team-readers.svg" alt="Team Readers">
         </div>
         <h3>Team Readers</h3>
         <p>Book lovers and storytellers!</p>
@@ -142,7 +188,7 @@
       </div>
       <div class="team-card interactive" data-team="whiskers">
         <div class="team-badge">
-          <img src="https://images.unsplash.com/photo-1509869175650-a1d97972541a?auto=format&fit=crop&w=200&q=80" alt="Team Artists">
+          <img src="assets/images/league/team-artists.svg" alt="Team Artists">
         </div>
         <h3>Team Artists</h3>
         <p>Creative and colorful!</p>
@@ -154,7 +200,7 @@
       </div>
       <div class="team-card interactive" data-team="thunder">
         <div class="team-badge">
-          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=200&q=80" alt="Team Explorers">
+          <img src="assets/images/league/team-explorers.svg" alt="Team Explorers">
         </div>
         <h3>Team Explorers</h3>
         <p>Adventure seekers!</p>
@@ -166,7 +212,7 @@
       </div>
       <div class="team-card interactive" data-team="stars">
         <div class="team-badge">
-          <img src="https://images.unsplash.com/photo-1491841651911-c44c30c34548?auto=format&fit=crop&w=200&q=80" alt="Team Builders">
+          <img src="assets/images/league/team-builders.svg" alt="Team Builders">
         </div>
         <h3>Team Builders</h3>
         <p>Creating amazing things!</p>
@@ -191,6 +237,12 @@
         <h3>Mini Games</h3>
         <p>Fun educational games for kids</p>
         <button class="play-btn" data-game="memory">Play Memory Game</button>
+      </div>
+      <div class="edu-card game-card">
+        <div class="card-icon">🐾</div>
+        <h3>Puppy Paw Battle</h3>
+        <p>Turn-based card battle demo</p>
+        <a class="play-btn" href="https://pawwslife-card-game-v1.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Puppy Paw Battle in a new tab">Play Demo</a>
       </div>
       <div class="edu-card download-card">
         <div class="card-icon">📄</div>
@@ -267,9 +319,18 @@
         <h3>Pawws Life</h3>
         <p>Creating magical experiences for kids everywhere!</p>
         <div class="social-links">
-          <a href="#" class="social-link">📘</a>
-          <a href="#" class="social-link">📷</a>
-          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15 3a6 6 0 0 0 5 5v3.1a8.4 8.4 0 0 1-5-1.6V15a6 6 0 1 1-6-6 6.2 6.2 0 0 1 1 .08V11a3.5 3.5 0 1 0 2 3.16V3h3Z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13 22v-8h3l1-3h-4V8a1 1 0 0 1 1-1h3V4h-3a4 4 0 0 0-4 4v3H7v3h3v8Z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 12s0-3-.39-4.47a3 3 0 0 0-2.14-2.14C18 5 12 5 12 5s-6 0-8.47.39A3 3 0 0 0 1.39 7.53C1 9 1 12 1 12s0 3 .39 4.47a3 3 0 0 0 2.14 2.14C6 19 12 19 12 19s6 0 8.47-.39a3 3 0 0 0 2.14-2.14C23 15 23 12 23 12Zm-13 3.5v-7l6 3.5Z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5Zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5Zm5.75-3.25a1.25 1.25 0 1 0 1.25 1.25 1.25 1.25 0 0 0-1.25-1.25Z"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-section">
@@ -292,10 +353,17 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Pawws Life. All rights reserved.</p>
-      <p class="cms-note">🔧 Powered by Custom CMS (WordPress/Webflow integration ready)</p>
+      <p>&copy; 2025 PawwSlyfe. All rights reserved.</p>
+      <p class="cms-note">🔧 Powered by Custom CMS</p>
+  <p style="font-size: 0.8rem; opacity: 0.8; margin-top: .5rem;">Favicon: <a href="https://www.flaticon.com/free-icons/paw-print" title="paw print icons" target="_blank" rel="noopener">Paw print icons created by Freepik - Flaticon</a></p>
     </div>
   </footer>
+
+  <!-- Custom Basketball Cursor -->
+  <div id="ball-cursor" aria-hidden="true"></div>
+
+  <!-- Scroll To Top Button -->
+  <button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top">↑</button>
 
   <script src="script.js"></script>
 </body>

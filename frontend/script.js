@@ -36,27 +36,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Enhanced character jump animation with more interactions
-const character = document.getElementById('character');
+// Make nav brand act as explicit home link
+document.getElementById('homeBrand')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Enhanced jump button animation
 const jumpBtn = document.getElementById('jumpBtn');
 
-if (jumpBtn && character) {
+if (jumpBtn) {
   jumpBtn.addEventListener('click', () => {
-    character.classList.add('jump');
     jumpBtn.textContent = 'Wheee! 🎉';
     
     // Add sparkle effect
-    createSparkles(character);
+    createSparkles(jumpBtn);
     
     // Make floating toys dance
     document.querySelectorAll('.floating-toy').forEach(toy => {
       toy.style.animation = 'floatToy 0.5s ease';
     });
     
+    // Scroll to who section
+    document.getElementById('who')?.scrollIntoView({ behavior: 'smooth' });
+    
     setTimeout(() => {
-      character.classList.remove('jump');
-      jumpBtn.textContent = 'Meet Pawws!';
+      jumpBtn.textContent = 'Explore';
     }, 700);
+  });
+} else if (jumpBtn) {
+  // Fallback: scroll to Who We Are section
+  jumpBtn.addEventListener('click', () => {
+    document.getElementById('who')?.scrollIntoView({ behavior: 'smooth' });
   });
 }
 
@@ -67,14 +78,15 @@ document.querySelectorAll('.floating-toy').forEach(toy => {
     createSparkles(this);
     
     // Different actions for different toys
-    const toyIcon = this.textContent;
-    let message = '';
-    switch(toyIcon) {
-      case '🎨': message = 'Let\'s create art together!'; break;
-      case '📚': message = 'Time for reading adventures!'; break;
-      case '🎮': message = 'Game time activated!'; break;
-      case '🌟': message = 'You\'re a star!'; break;
-    }
+        const toyIcon = this.textContent;
+        let message = '';
+        switch(toyIcon) {
+          case '🎨': message = "Let's create art together!"; break;
+          case '📚': message = 'Time for reading adventures!'; break;
+          case '🎮': message = 'Game time activated!'; break;
+          case '🌟': message = "You're a star!"; break;
+          default: message = 'Pawws says hi!';
+        }
     
     showNotification(message);
     
@@ -89,7 +101,7 @@ function createSparkles(element) {
   for (let i = 0; i < 8; i++) {
     const sparkle = document.createElement('div');
     sparkle.style.cssText = `
-      position: absolute;
+  position: absolute;
       width: 10px;
       height: 10px;
       background: radial-gradient(circle, #f9d423, #ff4e50);
@@ -105,6 +117,29 @@ function createSparkles(element) {
     document.body.appendChild(sparkle);
     
     setTimeout(() => sparkle.remove(), 1000);
+  }
+}
+
+// Sparkles at a viewport point (for hover/click)
+function createSparklesAtPoint(x, y, count = 8) {
+  for (let i = 0; i < count; i++) {
+    const s = document.createElement('div');
+    const dx = (Math.random() - 0.5) * 24;
+    const dy = (Math.random() - 0.5) * 24;
+    s.style.cssText = `
+      position: fixed;
+      left: ${x + dx}px;
+      top: ${y + dy}px;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #f9d423, #ff4e50);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: sparkle 0.9s ease-out forwards;
+      z-index: 3001;
+    `;
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1000);
   }
 }
 
@@ -127,12 +162,12 @@ const cartCount = document.querySelector('.cart-count');
 
 // Mock product data with categories (updated with child-focused images)
 const mockProducts = [
-  { id: 1, name: 'Learning Adventure Tee', price: 15.00, category: 'apparel', image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=400&q=80' },
-  { id: 2, name: 'Educational Greeting Cards', price: 3.00, category: 'cards', image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=400&q=80' },
-  { id: 3, name: 'Digital Learning Pack', price: 0.00, category: 'digital', image: 'https://images.unsplash.com/photo-1509869175650-a1d97972541a?auto=format&fit=crop&w=400&q=80' },
-  { id: 4, name: 'Creative Kids Hoodie', price: 25.00, category: 'apparel', image: 'https://images.unsplash.com/photo-1491841651911-c44c30c34548?auto=format&fit=crop&w=400&q=80' },
-  { id: 5, name: 'STEM Activity Cards', price: 5.00, category: 'cards', image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=400&q=80' },
-  { id: 6, name: 'Interactive Storybooks', price: 2.00, category: 'digital', image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=400&q=80' }
+  { id: 1, name: 'Learning Adventure Tee', price: 15.00, category: 'apparel', image: 'assets/images/shop/learning-adventure-tee.png' },
+  { id: 2, name: 'Educational Greeting Cards', price: 3.00, category: 'cards', image: 'assets/images/shop/learning-adventure-tee.png' },
+  { id: 3, name: 'Digital Learning Pack', price: 0.00, category: 'digital', image: 'assets/images/shop/creative-kids-hoodie.png' },
+  { id: 4, name: 'Creative Kids Hoodie', price: 25.00, category: 'apparel', image: 'assets/images/shop/creative-kids-hoodie.png' },
+  { id: 5, name: 'STEM Activity Cards', price: 5.00, category: 'cards', image: 'assets/images/shop/learning-adventure-tee.png' },
+  { id: 6, name: 'Interactive Storybooks', price: 2.00, category: 'digital', image: 'assets/images/shop/creative-kids-hoodie.png' }
 ];
 
 // Load products (with fallback if backend is not available)
@@ -152,9 +187,9 @@ function renderProducts(products, category = 'all') {
   const filteredProducts = category === 'all' ? products : products.filter(p => p.category === category);
   
   if (productsDiv) {
-    productsDiv.innerHTML = filteredProducts.map(product => `
+  productsDiv.innerHTML = filteredProducts.map(product => `
       <div class="product-card" data-category="${product.category}">
-        <img src="${product.image}" alt="${product.name}" loading="lazy">
+    <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.onerror=null;this.src='assets/images/shop/creative-kids-hoodie.png'">
         <h3>${product.name}</h3>
         <p>${product.price === 0 ? 'Free' : `$${product.price.toFixed(2)}`}</p>
         <button class="add-cart" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">
@@ -490,7 +525,196 @@ document.head.appendChild(scrollStyle);
 document.addEventListener('DOMContentLoaded', () => {
   loadProducts();
   updatePanelDisplay();
+  setupReveals();
+  setupScrollTop();
+  setupBasketballCursor();
+  setupMascotParallax();
+  // nav scrolled state
+  const nav = document.querySelector('.navbar');
+  const onScroll = () => {
+    if (!nav) return;
+    window.scrollY > 10 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 });
 
 // CMS integration placeholder - where real CMS data would be loaded
 console.log('🔧 CMS Integration Ready: This is where WordPress/Webflow content would be dynamically loaded');
+
+// Global sparkle on hover and click for clickable elements
+(() => {
+  const selector = 'button, a, [role="button"], .floating-toy, .team-card.interactive';
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return; // respect user preference
+
+  document.addEventListener('pointerenter', (e) => {
+    const el = e.target.closest(selector);
+    if (!el) return;
+    createSparklesAtPoint(e.clientX, e.clientY, 6);
+  }, true);
+
+  document.addEventListener('pointerdown', (e) => {
+    const el = e.target.closest(selector);
+    if (!el) return;
+    createSparklesAtPoint(e.clientX, e.clientY, 12);
+  }, true);
+})();
+
+// ---------------------
+// Scroll reveal animations
+// ---------------------
+function setupReveals() {
+  const nodes = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.getAttribute('data-delay');
+        const anim = el.getAttribute('data-anim');
+        if (anim) el.classList.add(anim);
+        setTimeout(() => el.classList.add('visible'), delay ? parseInt(delay, 10) : 0);
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.2 });
+  nodes.forEach(n => io.observe(n));
+}
+
+// ---------------------
+// Scroll to top button
+// ---------------------
+function setupScrollTop() {
+  const btn = document.getElementById('scrollTopBtn');
+  if (!btn) return;
+  const onScroll = () => {
+    const scrolled = window.scrollY || document.documentElement.scrollTop;
+    const half = (document.documentElement.scrollHeight - window.innerHeight) * 0.5;
+    if (scrolled > half) btn.classList.add('show'); else btn.classList.remove('show');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  onScroll();
+}
+
+// ---------------------
+// Custom basketball cursor with inertia + tiny spin
+// ---------------------
+function setupBasketballCursor() {
+  const ball = document.getElementById('ball-cursor');
+  if (!ball) return;
+
+  // Respect reduced motion: CSS will hide the ball and the native cursor remains
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+  document.body.classList.add('has-custom-cursor');
+
+  let targetX = 0, targetY = 0;
+  let x = window.innerWidth / 2, y = window.innerHeight / 2;
+  let lastX = x, lastY = y, lastT = performance.now();
+  let spin = 0; // deg
+  let raf;
+
+  const friction = 0.985; // spin decay per frame
+  const spinScale = 0.06; // small spin
+  const fastThreshold = 10; // px/frame
+  const fastImpulse = 6; // extra deg
+
+  const update = () => {
+    const now = performance.now();
+    const dt = Math.max(1, now - lastT);
+
+    // ease towards target
+    x += (targetX - x) * 0.15;
+    y += (targetY - y) * 0.15;
+
+    const vx = x - lastX;
+    const vy = y - lastY;
+    const speed = Math.hypot(vx, vy);
+    const dir = Math.sign(vx) || 1;
+    spin += dir * speed * spinScale * (16.67 / dt);
+    if (speed > fastThreshold) {
+      spin += dir * fastImpulse * (speed / 60);
+    }
+    spin *= friction;
+    if (spin > 1440) spin -= 1440; else if (spin < -1440) spin += 1440;
+
+    ball.style.setProperty('--spin', spin.toFixed(3) + 'deg');
+    ball.style.left = x + 'px';
+    ball.style.top = y + 'px';
+    ball.style.opacity = '1';
+
+    lastX = x; lastY = y; lastT = now;
+    raf = requestAnimationFrame(update);
+  };
+  const onMove = (e) => {
+    targetX = e.clientX; targetY = e.clientY;
+  };
+
+  window.addEventListener('mousemove', onMove, { passive: true });
+  update();
+}
+
+// Remove custom cursor class on unload (safety)
+window.addEventListener('beforeunload', () => {
+  document.body.classList.remove('has-custom-cursor');
+});
+
+// click feedback on basketball cursor
+(() => {
+  const ball = document.getElementById('ball-cursor');
+  if (!ball) return;
+  window.addEventListener('mousedown', () => {
+    ball.classList.remove('click');
+    // force reflow to restart animation
+    // eslint-disable-next-line no-unused-expressions
+    ball.offsetWidth;
+    ball.classList.add('click');
+  });
+})();
+
+// ---------------------
+// Mascot parallax following mouse
+// ---------------------
+function setupMascotParallax() {
+  const hero = document.getElementById('home');
+  const img = document.querySelector('.mascot');
+  if (!hero || !img) return;
+
+  let targetX = 0, targetY = 0; // desired transform
+  let x = 0, y = 0; // current transform
+  let raf;
+
+  const boundsFactor = 20; // px max movement
+  const rotateMax = 6; // deg
+
+  const onMove = (e) => {
+    const rect = hero.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) / rect.width;   // 0..1
+    const my = (e.clientY - rect.top) / rect.height;   // 0..1
+    // center-origin normalized (-0.5..0.5)
+    const nx = mx - 0.5;
+    const ny = my - 0.5;
+    targetX = nx * boundsFactor;
+    targetY = ny * boundsFactor;
+  };
+
+  const update = () => {
+    x += (targetX - x) * 0.08;
+    y += (targetY - y) * 0.08;
+    const rot = (-x / boundsFactor) * rotateMax; // tilt opposite x
+    img.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
+    raf = requestAnimationFrame(update);
+  };
+
+  const onEnter = () => img.classList.add('interactive');
+  const onLeave = () => {
+    img.classList.remove('interactive');
+    targetX = targetY = 0;
+  };
+
+  hero.addEventListener('mousemove', onMove, { passive: true });
+  hero.addEventListener('mouseenter', onEnter);
+  hero.addEventListener('mouseleave', onLeave);
+  update();
+}

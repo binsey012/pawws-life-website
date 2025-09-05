@@ -184,3 +184,28 @@ The backend is structured to easily integrate with:
 ---
 
 **Built with ❤️ for creative kids everywhere!** 🎨✨
+
+## 📷 Images
+
+All images are organized in `frontend/assets/images/` by section:
+
+- `global/` — logos, icons, cursor assets
+- `hero/` — hero mascot and backgrounds
+- `who/` — “Who We Are” illustrations
+- `shop/` — product images (mock/demo)
+- `league/` — team badges
+- `comics/` — comic panels
+
+Swap images by replacing files with the same names, e.g.:
+
+- Logo: `frontend/assets/images/global/logo.png`
+- Mascot: `frontend/assets/images/hero/mascot.png`
+- Who images: `frontend/assets/images/who/left.png`, `frontend/assets/images/who/right.png`
+- Team badges: `frontend/assets/images/league/team-*.png`
+- Comic panels: `frontend/assets/images/comics/panel-*.jpg`
+- Shop: `frontend/assets/images/shop/*`
+
+Tips
+- Prefer `.webp` when possible
+- Hero up to ~1600px width; others ~800px
+- Use descriptive names for easy maintenance

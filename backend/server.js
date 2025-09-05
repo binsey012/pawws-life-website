@@ -3,6 +3,7 @@
 
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const PORT = 3001;
 
@@ -91,6 +92,17 @@ app.get('/api/comics', (req, res) => {
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date() });
+});
+
+// -----------------------------
+// Static frontend (serve SPA)
+// -----------------------------
+const staticDir = path.join(__dirname, '..', 'frontend');
+app.use(express.static(staticDir, { extensions: ['html'] }));
+
+// SPA fallback to index.html (only for non-API requests)
+app.get(/^(?!\/api\/).*/, (req, res) => {
+  res.sendFile(path.join(staticDir, 'index.html'));
 });
 
 app.listen(PORT, () => {
